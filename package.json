@@ -1,13 +1,15 @@
 {
-  "name": "brain-games",
+  "name": "brain-games-fresh",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "scripts": {
+    "start": "node bin/brain-games.js"
+  },
+  "description": "Brain games CLI package",
+  "keywords": ["brain-games", "cli"],
+  "license": "MIT"
 }
