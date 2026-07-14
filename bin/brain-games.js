@@ -1,74 +1,30 @@
 #!/usr/bin/env node
 
-import readline from 'readline';
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-console.log('Welcome to the Brain Games!');
+import readlineSync from 'readline-sync';
+import { isEven, generateNumber, getGameDescription } from '../src/index.js';
 
 const roundsCount = 3;
-let round = 0;
-let playerName = '';
 
-function askName() {
-  rl.question('May I have your name? ', (name) => {
-    playerName = name.trim();
-    if (playerName === '') {
-      console.log('Please enter a name.');
-      askName();
-      return;
-    }
-    console.log(`Hello, ${playerName}!`);
-    askNextQuestion();
-  });
-}
+console.log('Welcome to the Brain Games!');
+const name = readlineSync.question('May I have your name? ');
+console.log(`Hello, ${name}!`);
 
-function generateRound() {
-  const start = Math.floor(Math.random() * 10) + 1;
-  const step = Math.floor(Math.random() * 5) + 2;
-  const length = 6;
+console.log(getGameDescription());
 
-  const progression = [];
-  for (let i = 0; i < length; i++) {
-    progression.push(start + i * step);
+for (let i = 0; i < roundsCount; i += 1) {
+  const number = generateNumber();
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ');
+
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+
+  if (answer === correctAnswer) {
+    console.log('Correct!');
+  } else {
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    console.log(`Let's try again, ${name}!`);
+    process.exit(1);
   }
-
-  const missingIndex = Math.floor(Math.random() * length);
-  const correctAnswer = String(progression[missingIndex]);
-
-  const questionParts = progression.map((num, index) =>
-    index === missingIndex ? '..' : String(num)
-  );
-
-  return {
-    question: questionParts.join(' '),
-    correctAnswer,
-  };
 }
 
-function askNextQuestion() {
-  if (round >= roundsCount) {
-    console.log(`Congratulations, ${playerName}!`);
-    rl.close();
-    return;
-  }
-
-  const { question, correctAnswer } = generateRound();
-  console.log(`Question: ${question}`);
-
-  rl.question('Your answer: ', (answer) => {
-    if (answer.trim() === correctAnswer) {
-      console.log('Correct!');
-      round++;
-      askNextQuestion();
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-      rl.close();
-    }
-  });
-}
-
-askName();
+console.log(`Congratulations, ${name}!`);

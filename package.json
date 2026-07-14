@@ -10,6 +10,12 @@
     "start": "node bin/brain-games.js"
   },
   "description": "Brain games CLI package",
-  "keywords": ["brain-games", "cli"],
-  "license": "MIT"
+  "keywords": [
+    "brain-games",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
