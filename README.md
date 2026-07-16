@@ -23,3 +23,6 @@ git clone git@github.com:Malvina7/brain-games-fresh.git
 cd brain-games-fresh
 npm ci
 brain-even```
+## 🎬 Демонстрация работы
+
+[Смотреть видео (mp4)](assets/demo.mp4)
