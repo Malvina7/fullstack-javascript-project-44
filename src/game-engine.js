@@ -1,27 +1,51 @@
+// src/game-engine.js
+import figlet from 'figlet';
 import readlineSync from 'readline-sync';
 
-export const runGame = (game) => {
+const printBanner = () => {
+  return new Promise((resolve) => {
+    figlet.text('Brain Games', (err, data) => {
+      if (err) {
+        console.error(err);
+        resolve('');
+      } else {
+        console.log(data);
+        resolve(data);
+      }
+    });
+  });
+};
+
+export const runGame = async (game) => {
+  await printBanner();
+
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log(game.description);
 
-  const roundsCount = 3;
+  const { description, generateRound } = game;
+  console.log(description);
 
-  for (let i = 0; i < roundsCount; i += 1) {
-    const round = game.generateRound();
+  const rounds = 3;
+  for (let i = 0; i < rounds; i += 1) {
+    const round = generateRound();
+    // На случай, если generateRound не возвращает объект — защита от той самой ошибки
+    if (!round || typeof round.question !== 'string' || typeof round.answer !== 'string') {
+      console.error('Ошибка: generateRound должен возвращать { question, answer }');
+      return;
+    }
+
     const { question, answer } = round;
-
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer !== answer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+    if (userAnswer === answer) {
+      console.log('Correct!');
+    } else {
+      console.log(`${name}, let's try again`);
+      return; // поражение: выходим из игры
     }
-    console.log('Correct!');
   }
 
-  console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${name}!`); // победа
 };
