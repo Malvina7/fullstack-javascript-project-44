@@ -1,5 +1,7 @@
 import { getRandomInt } from '../utils.js';
 
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 const generateRound = () => {
   const number = getRandomInt(1, 100);
   const question = String(number);
@@ -7,4 +9,7 @@ const generateRound = () => {
   return { question, answer };
 };
 
-export default generateRound;
+export default {
+  description,
+  generateRound,
+};
