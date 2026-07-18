@@ -28,6 +28,8 @@ npm ci
 ## 🎮 Пример сессии (аскинема)
 
 Ниже — пример работы игры:
+Сценарий 1: Победа
+
 
 ```text
 Welcome to the Brain Games!
@@ -44,4 +46,16 @@ Question: 37
 Your answer: no
 Correct!
 Congratulations, Julia!
+```
+Сценарий 2: Поражение
+
+```text
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+Answer "yes" if the number is even, otherwise answer "no".
+Question: 42
+Your answer: no
+'no' is wrong answer ;(. Correct answer was 'yes'.
+Let's try again, Alex!
 ```
