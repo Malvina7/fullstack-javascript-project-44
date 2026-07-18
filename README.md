@@ -7,16 +7,19 @@
 
 ## Что внутри
 
-Сейчас в проекте реализована базовая архитектура CLI‑игр и одна игра:
-- **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик побед.
-- **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
-- **Точка входа CLI** (`bin/brain-even.js`) — скрипт, который запускается командой `brain-even`.
+В проекте реализована базовая архитектура CLI‑игр и две игры:
+
+- **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик раундов.
+- **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
+- **Игра «Калькулятор»** (`src/games/calc.js`) — считаем выражения с `+`, `-`, `*`.
+- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`) и `bin/brain-calc.js` (команда `brain-calc`).
 
 Архитектура спроектирована так, чтобы легко добавлять новые игры: достаточно создать новый файл в `src/games/` с полями `description` и `generateRound`.
 
 ## 🚀 Как запустить проект
 
 ### Если ты клонируешь проект впервые
+
 
 ```bash
 git clone git@github.com:Malvina7/brain-games-fresh.git
@@ -28,10 +31,11 @@ npm ci
 ## 🎮 Пример сессии (аскинема)
 
 Ниже — пример работы игры:
-Сценарий 1: Победа
+Сценарий 1: Победа в brain-even
 
 
 ```text
+$ brain-even
 Welcome to the Brain Games!
 May I have your name? Julia
 Hello, Julia!
@@ -47,9 +51,9 @@ Your answer: no
 Correct!
 Congratulations, Julia!
 ```
-Сценарий 2: Поражение
-
+Сценарий 2: Поражение в brain-even
 ```text
+$ brain-even
 Welcome to the Brain Games!
 May I have your name? Alex
 Hello, Alex!
@@ -57,5 +61,37 @@ Answer "yes" if the number is even, otherwise answer "no".
 Question: 42
 Your answer: no
 'no' is wrong answer ;(. Correct answer was 'yes'.
+Let's try again, Alex!
+```
+Сценарий 3: Победа в brain-calc
+
+```text
+$ brain-calc
+Welcome to the Brain Games!
+May I have your name? Julia
+Hello, Julia!
+What is the result of the expression?
+Question: 60 - 34
+Your answer: 26
+Correct!
+Question: 10 * 10
+Your answer: 100
+Correct!
+Question: 35 + 2
+Your answer: 37
+Correct!
+Congratulations, Julia!
+```
+Сценарий 4: Поражение в brain-calc
+
+```text
+$ brain-calc
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+What is the result of the expression?
+Question: 46 + 82
+Your answer: 53
+'53' is wrong answer ;(. Correct answer was '128'.
 Let's try again, Alex!
 ```
