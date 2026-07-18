@@ -10,7 +10,7 @@
 Сейчас в проекте реализована базовая архитектура CLI‑игр и одна игра:
 - **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик побед.
 - **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
-- **Точка входа CLI** (`bin/brain-games.js`) — скрипт, который запускается командой `brain-games`.
+- **Точка входа CLI** (`bin/brain-even.js`) — скрипт, который запускается командой `brain-even`.
 
 Архитектура спроектирована так, чтобы легко добавлять новые игры: достаточно создать новый файл в `src/games/` с полями `description` и `generateRound`.
 
@@ -22,7 +22,26 @@
 git clone git@github.com:Malvina7/brain-games-fresh.git
 cd brain-games-fresh
 npm ci
-brain-even```
-## 🎬 Демонстрация работы
+```
+---
 
-[Смотреть видео (mp4)](assets/demo.mp4)
+## 🎮 Пример сессии (аскинема)
+
+Ниже — пример работы игры:
+
+```text
+Welcome to the Brain Games!
+May I have your name? Julia
+Hello, Julia!
+Answer "yes" if the number is even, otherwise answer "no".
+Question: 79
+Your answer: no
+Correct!
+Question: 7
+Your answer: no
+Correct!
+Question: 37
+Your answer: no
+Correct!
+Congratulations, Julia!
+```
