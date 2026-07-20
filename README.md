@@ -7,14 +7,16 @@
 
 ## Что внутри
 
-В проекте реализована базовая архитектура CLI‑игр и две игры:
+В проекте реализована базовая архитектура CLI‑игр и три игры:
 
 - **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик раундов.
 - **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
 - **Игра «Калькулятор»** (`src/games/calc.js`) — считаем выражения с `+`, `-`, `*`.
-- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`) и `bin/brain-calc.js` (команда `brain-calc`).
+- **Игра «Наибольший общий делитель»** (`src/games/gcd.js`) — нужно найти НОД двух чисел.
+- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`), `bin/brain-calc.js` (команда `brain-calc`) и `bin/brain-gcd.js` (команда `brain-gcd`).
 
 Архитектура спроектирована так, чтобы легко добавлять новые игры: достаточно создать новый файл в `src/games/` с полями `description` и `generateRound`.
+
 
 ## 🚀 Как запустить проект
 
@@ -93,5 +95,37 @@ What is the result of the expression?
 Question: 46 + 82
 Your answer: 53
 '53' is wrong answer ;(. Correct answer was '128'.
+Let's try again, Alex!
+```
+Сценарий 5: Победа в brain-gcd
+
+```text
+$ brain-gcd
+Welcome to the Brain Games!
+May I have your name? Julia
+Hello, Julia!
+Find the greatest common divisor of given numbers.
+Question: 94 75
+Your answer: 1
+Correct!
+Question: 58 79
+Your answer: 1
+Correct!
+Question: 44 100
+Your answer: 4
+Correct!
+Congratulations, Julia!
+```
+Сценарий 6: Поражение в brain-gcd
+
+```text
+$ brain-gcd
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+Find the greatest common divisor of given numbers.
+Question: 96 71
+Your answer: 2
+'2' is wrong answer ;(. Correct answer was '1'.
 Let's try again, Alex!
 ```
