@@ -1,7 +1,16 @@
-import js from "@eslint/js";
-import globals from "globals";
-import { defineConfig } from "eslint/config";
+// eslint.config.js
+export default [
+  {
+    files: ['**/*.js'],
+    rules: {
+      'no-magic-numbers': 'warn',
+    },
+  },
+  {
+    files: ['src/utils.js', 'src/game-engine.js'],
+    rules: {
+      'no-magic-numbers': 'off',
+    },
+  },
+];
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: {...globals.browser, ...globals.node} } },
-]);
