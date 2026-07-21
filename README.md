@@ -7,16 +7,19 @@
 
 ## Что внутри
 
-В проекте реализована базовая архитектура CLI‑игр и четыре игры:
+В проекте реализована базовая архитектура CLI‑игр и пять игр:
 
 - **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик раундов.
 - **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
 - **Игра «Калькулятор»** (`src/games/calc.js`) — считаем выражения с `+`, `-`, `*`.
 - **Игра «Наибольший общий делитель»** (`src/games/gcd.js`) — нужно найти НОД двух чисел.
 - **Игра «Арифметическая прогрессия»** (`src/games/progression.js`) — нужно угадать пропущенное число в прогрессии (скрыто как `..`).
-- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`), `bin/brain-calc.js` (команда `brain-calc`), `bin/brain-gcd.js` (команда `brain-gcd`), `bin/brain-progression.js` (команда `brain-progression`).
+- **Игра «Простое ли число?»** (`src/games/prime.js`) — нужно ответить `yes`, если число простое, иначе `no`.
+
+- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`), `bin/brain-calc.js` (команда `brain-calc`), `bin/brain-gcd.js` (команда `brain-gcd`), `bin/brain-progression.js` (команда `brain-progression`), `bin/brain-prime.js` (команда `brain-prime`).
 
 Архитектура спроектирована так, чтобы легко добавлять новые игры: достаточно создать новый файл в `src/games/` с полями `description` и `generateRound`.
+
 
 
 ## 🚀 Как запустить проект
@@ -162,5 +165,39 @@ Your answer: 1
 '1' is wrong answer ;(. Correct answer was '36'.
 Let's try again, Alex!
 ```
+Сценарий 9: Победа в brain-prime
+
+```text
+$ brain-prime
+Welcome to the Brain Games!
+May I have your name? Julia
+Hello, Julia!
+Answer "yes" if given number is prime. Otherwise answer "no".
+Question: 7
+Your answer: yes
+Correct!
+Question: 13
+Your answer: yes
+Correct!
+Question: 47
+Your answer: yes
+Correct!
+Congratulations, Julia!
+```
+Сценарий 10: Поражение в brain-prime
+
+```text
+$ brain-prime
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+Answer "yes" if given number is prime. Otherwise answer "no".
+Question: 27
+Your answer: yes
+'yes' is wrong answer ;(. Correct answer was 'no'.
+Let's try again, Alex!
+```
+
+
 
 
