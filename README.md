@@ -7,13 +7,14 @@
 
 ## Что внутри
 
-В проекте реализована базовая архитектура CLI‑игр и три игры:
+В проекте реализована базовая архитектура CLI‑игр и четыре игры:
 
 - **Движок игры** (`src/game-engine.js`) — универсальная логика: приветствие, вопрос, проверка ответа, счётчик раундов.
 - **Игра «Чётное число»** (`src/games/even.js`) — классическая первая игра из трека Хекслет.
 - **Игра «Калькулятор»** (`src/games/calc.js`) — считаем выражения с `+`, `-`, `*`.
 - **Игра «Наибольший общий делитель»** (`src/games/gcd.js`) — нужно найти НОД двух чисел.
-- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`), `bin/brain-calc.js` (команда `brain-calc`) и `bin/brain-gcd.js` (команда `brain-gcd`).
+- **Игра «Арифметическая прогрессия»** (`src/games/progression.js`) — нужно угадать пропущенное число в прогрессии (скрыто как `..`).
+- **Точки входа CLI**: `bin/brain-even.js` (команда `brain-even`), `bin/brain-calc.js` (команда `brain-calc`), `bin/brain-gcd.js` (команда `brain-gcd`), `bin/brain-progression.js` (команда `brain-progression`).
 
 Архитектура спроектирована так, чтобы легко добавлять новые игры: достаточно создать новый файл в `src/games/` с полями `description` и `generateRound`.
 
@@ -129,3 +130,37 @@ Your answer: 2
 '2' is wrong answer ;(. Correct answer was '1'.
 Let's try again, Alex!
 ```
+Сценарий 7: Победа в brain-progression
+
+```text
+$ brain-progression
+Welcome to the Brain Games!
+May I have your name? Julia
+Hello, Julia!
+What number is missing in the progression?
+Question: -42 -38 .. -30 -26
+Your answer: -34
+Correct!
+Question: -21 -16 -11 -6 -1 ..
+Your answer: 4
+Correct!
+Question: 37 47 57 .. 77
+Your answer: 67
+Correct!
+Congratulations, Julia!
+```
+Сценарий 8: Поражение в brain-progression
+
+```text
+$ brain-progression
+Welcome to the Brain Games!
+May I have your name? Alex
+Hello, Alex!
+What number is missing in the progression?
+Question: 24 26 28 30 32 34 ..
+Your answer: 1
+'1' is wrong answer ;(. Correct answer was '36'.
+Let's try again, Alex!
+```
+
+
