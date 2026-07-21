@@ -1,30 +1,23 @@
-const getRandomInt = (min, max) => {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1)) + minCeiled;
-};
+import { getRandomInt } from '../utils.js';
+import { MIN_NUMBER, MAX_NUMBER } from '../constants.js';
+import { FIRST_PRIME_CANDIDATE, ZERO, UNIT } from '../constants.js';  // ← добавили
 
 const isPrime = (num) => {
-  if (num < 2) return false;
-  if (num === 2) return true;
-  if (num % 2 === 0) return false;
-
-  const limit = Math.floor(Math.sqrt(num));
-  for (let divisor = 3; divisor <= limit; divisor += 2) {
-    if (num % divisor === 0) {
-      return false;
-    }
+  if (num < FIRST_PRIME_CANDIDATE) return false;  // ← заменили 2 на FIRST_PRIME_CANDIDATE
+  for (let i = FIRST_PRIME_CANDIDATE; i * i <= num; i += UNIT) {  // ← заменили 2 и 1
+    if (num % i === ZERO) return false;  // ← заменили 0 на ZERO
   }
   return true;
 };
 
-const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
 const generateRound = () => {
-  const number = getRandomInt(2, 100);
+  const number = getRandomInt(MIN_NUMBER, MAX_NUMBER);
   const question = String(number);
   const answer = isPrime(number) ? 'yes' : 'no';
   return { question, answer };
 };
 
-export default { description, generateRound };
+export default {
+  description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  generateRound,
+};

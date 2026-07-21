@@ -1,6 +1,6 @@
 // src/game-engine.js
 import readline from 'readline';
-
+import { ROUNDS_COUNT } from './constants.js';
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -16,7 +16,7 @@ const runGame = async (game) => {
   console.log(`Hello, ${name}!`);
   console.log(game.description);
 
-  const rounds = 3;
+  const rounds = ROUNDS_COUNT;
   for (let i = 0; i < rounds; i += 1) {
     const { question, answer } = game.generateRound();
     console.log(`Question: ${question}`);

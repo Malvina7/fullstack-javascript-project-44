@@ -1,28 +1,29 @@
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+// src/games/calc.js
+import { getRandomInt } from '../utils.js';
+import { MIN_NUMBER, MAX_NUMBER, ZERO, UNIT } from '../constants.js';
 
-const operators = ['+', '-', '*'];
+const operations = ['+', '-', '*'];
 
-const getRandomOperator = () => {
-  const index = getRandomInt(0, operators.length - 1);
-  return operators[index];
-};
-
-const calculate = (a, b, operator) => {
-  switch (operator) {
-    case '+': return a + b;
-    case '-': return a - b;
-    case '*': return a * b;
-    default: throw new Error('Unknown operator');
+const calculate = (a, b, op) => {
+  switch (op) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      return null;
   }
 };
 
 const generateRound = () => {
-  const a = getRandomInt(1, 100);
-  const b = getRandomInt(1, 100);
-  const operator = getRandomOperator();
-  const question = `${a} ${operator} ${b}`;
-  const answer = String(calculate(a, b, operator));
-
+  const a = getRandomInt(MIN_NUMBER, MAX_NUMBER);
+  const b = getRandomInt(MIN_NUMBER, MAX_NUMBER);
+  const opIndex = getRandomInt(ZERO, operations.length - UNIT);
+  const op = operations[opIndex];
+  const question = `${a} ${op} ${b}`;
+  const answer = String(calculate(a, b, op));
   return { question, answer };
 };
 

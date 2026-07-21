@@ -1,31 +1,40 @@
-const getRandomInt = (min, max) => {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1)) + minCeiled;
-};
+// src/games/progression.js
+import { getRandomInt } from '../utils.js';
+import {
+  PROGRESSION_MIN_START,
+  PROGRESSION_MAX_START,
+  PROGRESSION_MIN_STEP,
+  PROGRESSION_MAX_STEP,
+  UNIT,
+  ZERO
+} from '../constants.js';
 
 const generateProgression = (start, step, length) => {
-  const progression = [];
-  for (let i = 0; i < length; i++) {
-    progression.push(start + i * step);
+  const result = [];
+  for (let i = ZERO; i < length; i += UNIT) {
+    result.push(start + i * step);
   }
-  return progression;
+  return result;
 };
 
-export const gameDescription = 'What number is missing in the progression?';
-
-export const generateRound = () => {
-  const start = getRandomInt(-50, 50);
-  const step = getRandomInt(1, 10);
-  const length = getRandomInt(5, 10);
-
+const generateRound = () => {
+  const start = getRandomInt(PROGRESSION_MIN_START, PROGRESSION_MAX_START);
+  const step = getRandomInt(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
+  const length = 10;
   const progression = generateProgression(start, step, length);
-  const hiddenIndex = getRandomInt(0, length - 1);
-  const correctAnswer = String(progression[hiddenIndex]);
 
-  const question = progression
-    .map((num, index) => (index === hiddenIndex ? '..' : String(num)))
-    .join(' ');
+  const missingIndex = getRandomInt(ZERO, length - UNIT);
+  const missingNumber = progression[missingIndex];
 
-  return { question, answer: correctAnswer };
+  const displayProgression = [...progression];
+  displayProgression[missingIndex] = '..';
+
+  const question = displayProgression.join(' ');
+  const answer = String(missingNumber);
+  return { question, answer };
+};
+
+export default {
+  description: 'What number is missing in the progression?',
+  generateRound,
 };
