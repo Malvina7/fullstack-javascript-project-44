@@ -1,6 +1,6 @@
 # Brain Games
 
-Консольные мини‑игры на Node.js. Проект для Хекслета (Вариант Б: CLI‑библиотека).
+Консольные мини‑игры на Node.js. Проект для Хекслета ( CLI‑библиотека).
 
 [![Node.js CI](https://github.com/Malvina7/brain-games-fresh/actions/workflows/node.js.yml/badge.svg)](https://github.com/Malvina7/brain-games-fresh/actions)
 [![JavaScript Style Guide](https://img.shields.io/badge/style-eslint-blue)](https://eslint.org/)
