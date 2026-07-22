@@ -1,9 +1,10 @@
 # Brain Games
 
-Консольные мини‑игры на Node.js. Проект для Хекслета (Вариант Б: CLI‑библиотека).
+Консольные мини‑игры на Node.js. Проект для Хекслета (CLI‑библиотека).
 
-[![Node.js CI](https://github.com/Malvina7/brain-games-fresh/actions/workflows/node.js.yml/badge.svg)](https://github.com/Malvina7/brain-games-fresh/actions)
+[![Hexlet Check](https://github.com/Malvina7/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Malvina7/fullstack-javascript-project-44/actions)
 [![JavaScript Style Guide](https://img.shields.io/badge/style-eslint-blue)](https://eslint.org/)
+
 
 ## Что внутри
 
@@ -26,10 +27,9 @@
 
 ### Если ты клонируешь проект впервые
 
-
 ```bash
-git clone git@github.com:Malvina7/brain-games-fresh.git
-cd brain-games-fresh
+git clone git@github.com:Malvina7/fullstack-javascript-project-44.git
+cd fullstack-javascript-project-44
 npm ci
 ```
 ---
