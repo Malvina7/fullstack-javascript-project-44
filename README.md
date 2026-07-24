@@ -1,4 +1,6 @@
 # Brain Games
+[![Hexlet Check](https://github.com/Malvina7/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Malvina7/fullstack-javascript-project-44/actions)
+
 
 [![Hexlet Check](https://github.com/Malvina7/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Malvina7/fullstack-javascript-project-44/actions)
 [![JavaScript Style Guide](https://img.shields.io/badge/style-eslint-blue)](https://eslint.org/)
