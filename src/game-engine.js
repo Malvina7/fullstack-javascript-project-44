@@ -1,5 +1,5 @@
 // src/game-engine.js
-import readline from 'readline';
+import readline from 'node:readline'; 
 import { ROUNDS_COUNT } from './constants.js';
 const rl = readline.createInterface({
   input: process.stdin,
