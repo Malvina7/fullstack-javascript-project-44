@@ -1,5 +1,5 @@
 {
-  "name": "brain-games-fresh",
+  "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.js",
