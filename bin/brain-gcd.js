@@ -1,4 +1,4 @@
-﻿import { runGame } from '../src/game-engine.js';
-import game from '../src/games/gcd.js';
+﻿const { runGame } = require('../src/game-engine.js');
+const game = require('../src/games/gcd.js').default;
 
 runGame(game);
