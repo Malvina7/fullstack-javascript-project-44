@@ -4,19 +4,19 @@
   "type": "module",
   "main": "src/index.js",
   "bin": {
-  "brain-games": "./bin/brain-games.js",
-  "brain-even": "./bin/brain-even.js",
-  "brain-calc": "./bin/brain-calc.js",
-  "brain-gcd": "./bin/brain-gcd.js",
-  "brain-progression": "./bin/brain-progression.js",
-  "brain-prime": "./bin/brain-prime.js"
+  "brain-games": "bin/brain-games.js",
+  "brain-even": "bin/brain-even.js",
+  "brain-calc": "bin/brain-calc.js",
+  "brain-gcd": "bin/brain-gcd.js",
+  "brain-progression": "bin/brain-progression.js",
+  "brain-prime": "bin/brain-prime.js"
 },
 
+
   "scripts": {
-    "start": "node bin/brain-games.js",
-    "lint": "npx eslint .",
-    "fix-ci-force-rebuild": "echo ok"
-  },
+  "lint": "npx eslint .",
+  "fix-ci-force-rebuild": "echo ok"
+},
   "keywords": [
     "cli",
     "game",
