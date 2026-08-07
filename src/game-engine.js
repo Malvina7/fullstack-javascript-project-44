@@ -1,39 +1,34 @@
-// src/game-engine.js
-import readline from 'node:readline'; 
-import { ROUNDS_COUNT } from './constants.js';
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+import askQuestion from './ask-question.js';
 
-const askQuestion = (query) => new Promise((resolve) => {
-  rl.question(query, (answer) => resolve(answer));
-});
+const ROUNDS_COUNT = 3;
 
 const runGame = async (game) => {
   console.log('Welcome to the Brain Games!');
-  const name = await askQuestion('May I have your name? ');
-  console.log(`Hello, ${name}!`);
   console.log(game.description);
 
+  const userName = await askQuestion('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+
   const rounds = ROUNDS_COUNT;
+
   for (let i = 0; i < rounds; i += 1) {
     const { question, answer } = game.generateRound();
     console.log(question);
+
     const userAnswer = await askQuestion('Your answer: ');
 
     if (userAnswer === answer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      rl.close();
+      console.log(
+        `"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`
+      );
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
   }
 
-  console.log(`Congratulations, ${name}!`);
-  rl.close();
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export { runGame };
