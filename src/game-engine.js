@@ -19,7 +19,7 @@ const runGame = async (game) => {
   const rounds = ROUNDS_COUNT;
   for (let i = 0; i < rounds; i += 1) {
     const { question, answer } = game.generateRound();
-    console.log(`Question: ${question}`);
+    console.log(question);
     const userAnswer = await askQuestion('Your answer: ');
 
     if (userAnswer === answer) {

@@ -14,8 +14,7 @@
 
 
   "scripts": {
-  "lint": "npx eslint .",
-  "fix-ci-force-rebuild": "echo ok"
+  "lint": "npx eslint ."
 },
   "keywords": [
     "cli",

@@ -15,8 +15,7 @@ const generateRound = () => {
   const a = getRandomInt(MIN_NUMBER, MAX_NUMBER);
   const b = getRandomInt(MIN_NUMBER, MAX_NUMBER);
 
-  // ТОЛЬКО числа, без "Question:"
-  const question = `${a} ${b}`;
+  const question = `Question: ${a} ${b}`;
   const answer = String(getGCD(a, b));
 
   return { question, answer };
