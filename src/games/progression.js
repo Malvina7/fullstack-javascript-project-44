@@ -1,4 +1,3 @@
-// src/games/progression.js
 import { getRandomInt } from '../utils.js';
 import {
   PROGRESSION_MIN_START,
@@ -6,7 +5,7 @@ import {
   PROGRESSION_MIN_STEP,
   PROGRESSION_MAX_STEP,
   UNIT,
-  ZERO
+  ZERO,
 } from '../constants.js';
 
 const generateProgression = (start, step, length) => {
@@ -31,6 +30,7 @@ const generateRound = () => {
 
   const question = displayProgression.join(' ');
   const answer = String(missingNumber);
+
   return { question, answer };
 };
 

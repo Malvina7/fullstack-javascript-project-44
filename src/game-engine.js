@@ -1,4 +1,4 @@
-import askQuestion from './ask-question.js';
+import { askQuestion } from './utils.js';
 
 const ROUNDS_COUNT = 3;
 
@@ -9,11 +9,9 @@ const runGame = async (game) => {
   const userName = await askQuestion('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  const rounds = ROUNDS_COUNT;
-
-  for (let i = 0; i < rounds; i += 1) {
+  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
     const { question, answer } = game.generateRound();
-    console.log(question);
+    console.log(`Question: ${question}`);
 
     const userAnswer = await askQuestion('Your answer: ');
 

@@ -1,7 +1,5 @@
 ﻿import { getRandomInt } from '../utils.js';
-
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 100;
+import { MIN_NUMBER, MAX_NUMBER } from '../constants.js';
 
 const getGCD = (a, b) => {
   let x = a;
@@ -19,8 +17,7 @@ const getGCD = (a, b) => {
 const generateRound = () => {
   const a = getRandomInt(MIN_NUMBER, MAX_NUMBER);
   const b = getRandomInt(MIN_NUMBER, MAX_NUMBER);
-
-  const question = `Question: ${a} ${b}`;
+  const question = `${a} ${b}`;
   const answer = String(getGCD(a, b));
 
   return { question, answer };
