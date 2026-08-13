@@ -1,4 +1,4 @@
-﻿import { getRandomInt } from '../utils.js';
+import { getRandomInt } from '../utils.js';
 import { MIN_NUMBER, MAX_NUMBER } from '../constants.js';
 
 const getGCD = (a, b) => {
